@@ -4,5 +4,5 @@ from . import views
 
 
 urlpatterns = [
-    url(r'^$', views.lista_posts, nome='Lista_posts')
+    url(r'^$', views.lista_posts, name='Lista_posts')
 ]
