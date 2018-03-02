@@ -83,7 +83,7 @@ DATABASES = {
         'USER': 'xMirella',
         #'PASSWORD': 'django-pass',
         'PASSWORD': 'P00h123456',
-        'HOST': 'localhost',
+        'HOST': 'xMirella.mysql.pythonanywhere-services.com',
 
 
     }
