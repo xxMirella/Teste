@@ -25,7 +25,7 @@ SECRET_KEY = '8^+xbc&k_@r-i!mn7mw_rhdj7%z6%@7*1s#4uy5qz4b%$kpu+%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['xmirella.pythonanywhere.com']
 
 
 # Application definition
@@ -77,9 +77,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'site',
-        'USER': 'django',
-        'PASSWORD': 'django-pass',
+        #'NAME': 'site',
+        'NAME': 'xMirella$site',
+        #'USER': 'django',
+        'USER': 'xMirella',
+        #'PASSWORD': 'django-pass',
+        'PASSWORD': 'P00h123456',
         'HOST': 'localhost',
 
 
