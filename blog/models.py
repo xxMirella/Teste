@@ -12,7 +12,7 @@ class Post(models.Model):
     titulo = models.CharField(max_length=200)
     text = models.TextField()
     data_criacao = models.DateTimeField(default=timezone.now)
-    data_publicacao = models.DateTimeField(blank=True, null=True)
+    data_publicacao = models.DateTimeField(default=timezone.now, null=False)
 
     def publicar(self):
         self.data_publicacao = timezone.now()
