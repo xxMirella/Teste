@@ -3,8 +3,16 @@
     font-family: 'Indie Flower', cursive;
  }
 
- h2 {
+ h2 a {
     color: E09DD7;
+ }
+
+ a:link {
+    text-decoration:none;
+ }
+
+ a:hover{
+    color: C466B8;
  }
 
  p {
