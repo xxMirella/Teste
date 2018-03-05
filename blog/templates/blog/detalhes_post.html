@@ -13,6 +13,9 @@
         <h1 class="details">{{posts.titulo}}</h1>
       </div>
       <p>{{posts.text}}</p>
+      {% if user.is_authenticated %}
+        <a class="btn btn-default" href="{% url 'editar' pk=posts.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+      {% endif %}
     </div>
   </div>
 </div>

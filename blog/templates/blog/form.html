@@ -4,12 +4,18 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <div class="form-group">
-        <form method="POST">
-          {{forms.as_p}}
-        </form>
-      </div>
-    <button type="button" class="btn btn-primary btn-sm">Salvar</button>
+      <form method="POST" class="post-form">
+        {% csrf_token %}
+        <div class="form-group">
+          <label class="label1">Título</label>
+          <input type="text" class="form-control" placeholder="Título" aria-describedby="basic-addon1">
+          <label class="label2">Texto</label>
+          <textarea rows="4" class="form-control" placeholder="Texto" aria-describedby="basic-addon1"></textarea>
+          <div>
+            <button type="submit" class="save btn btn-primary btn-sm">Salvar</button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>

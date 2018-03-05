@@ -42,5 +42,34 @@
 
  .icone {
     position: absolute;
-    right:10%;
+    left:50%;
+ }
+
+ .label1 {
+    color: C466B8;
+    font-family: 'Indie Flower', cursive;
+ }
+
+ .label2{
+    color: C466B8;
+    font-family: 'Indie Flower', cursive;
+    margin-top: 5px;
+
+ }
+
+ .form-group {
+    padding: 6px;
+ }
+
+ label{
+    padding: 5px
+ }
+
+ button {
+    margin-top: 15px;
+ }
+
+ .icone2 {
+    position: absolute;
+    left:45%;
  }
