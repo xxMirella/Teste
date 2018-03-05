@@ -25,8 +25,8 @@ SECRET_KEY = '8^+xbc&k_@r-i!mn7mw_rhdj7%z6%@7*1s#4uy5qz4b%$kpu+%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = ['xmirella.pythonanywhere.com']
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['xmirella.pythonanywhere.com']
+#ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition

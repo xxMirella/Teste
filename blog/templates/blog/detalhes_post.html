@@ -1,15 +1,21 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-
-{% if posts.data_publicacao %}
-  <div class="date">
-    {{posts.data_publicacao}}
+<div class="content container">
+  <div class="row">
+    <div class="col-md-8">
+      {% if posts.data_publicacao %}
+        <div class="date">
+          {{posts.data_publicacao}}
+        </div>
+      {% endif %}
+      <div class="headers">
+        <h1 class="details">{{posts.titulo}}</h1>
+      </div>
+      <p>{{posts.text}}</p>
+    </div>
   </div>
-{% endif %}
-<div class="headers">
-  <h1>{{posts.titulo}}</h1>
 </div>
-<p>{{posts.text}}</p>
+
 
 {% endblock %}

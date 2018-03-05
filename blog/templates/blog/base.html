@@ -10,9 +10,23 @@
     </head>
     <body>
         <div class="container">
-        <div class="headers">
-            <h1>Blog da Mi</h1>
-            <h3>Olá menines!</h3>
+            <div class="headers">
+                <a href="{% url 'novo_post' %}" class="icone"><span class="glyphicon glyphicon-plus">Post</span></a>
+                <div class="container">
+                    <h1>Blog da Mi</h1>
+                    <h3>Olá menines!</h3>
+                </div>
+            </div>
+                <ul class="nav nav-tabs col-md-8" id="myTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="menu" href="{% url 'lista_posts' %}">Home</a>
+                  </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+                  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                </div>
         </div>
             {% block content %}
 

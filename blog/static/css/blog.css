@@ -18,3 +18,29 @@
  p {
     font-family: 'Nanum Myeongjo', serif;
  }
+
+ .date{
+    text-align: right;
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: bold;
+    color: BABABA;
+ }
+
+ .details {
+    color: E09DD7;
+ }
+
+ .menu {
+    font-family: 'Nanum Myeongjo', serif;
+    color: 509AB3;
+    font-weight: bold;
+ }
+
+ .menu:hover {
+    color: C466B8;
+ }
+
+ .icone {
+    position: absolute;
+    right:10%;
+ }
