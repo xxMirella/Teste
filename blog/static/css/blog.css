@@ -40,11 +40,6 @@
     color: C466B8;
  }
 
- .icone {
-    position: absolute;
-    left:50%;
- }
-
  .label1 {
     color: C466B8;
     font-family: 'Indie Flower', cursive;
@@ -69,7 +64,17 @@
     margin-top: 15px;
  }
 
+ .icone {
+    padding-left: 620px;
+ }
+
  .icone2 {
-    position: absolute;
-    left:45%;
+    padding-left: 620px;
+    font-family: 'Indie Flower', cursive;
+ }
+
+ .usuario {
+    padding-top: 25px;
+    font-family: 'Indie Flower', cursive;
+    color: E09DD7;
  }

@@ -13,11 +13,15 @@
             <div class="headers">
                 {% if user.is_authenticated %}
                     <a href="{% url 'novo_post' %}" class="icone"><span class="glyphicon glyphicon-plus">Post</span></a>
-                    <a href="{% url 'logar' %}"class="icone"><span class="glyphicon glyphicon-off">Sair</span></a>
+                    <a href="{% url 'deslogar' %}" class="icone2"><span class="glyphicon glyphicon-off">Sair</span></a>
                 {% else %}
-                    <a href="{% url 'logar' %}" class="icone-logar"><span class="glyphicon glyphicon-user">Logar</span></a>
+                    <a href="{% url 'logar' %}" class="icone"><span class="glyphicon glyphicon-user">Logar</span></a>
+                    <a href="{% url 'cadastro' %}" class="icone2"><span class="glyphicon glyphicon-edit">Cadastro</span></a>
                 {% endif %}
                 <div class="container">
+                    <div class="usuario">
+                        Bem vindo {{user.username}}
+                    </div>
                     <h1>Blog da Mi</h1>
                     <h3>Olá menines!</h3>
                 </div>

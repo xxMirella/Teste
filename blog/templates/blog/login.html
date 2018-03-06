@@ -1,24 +1,27 @@
 {% extends 'blog/base.html' %}
 
-{% block title %}Log-in{% endblock %}
-
 {% block content %}
-  <form action="." method="post">
+  <form action="{% url 'logar' %}" method="POST" class="form-row">
+    {% csrf_token %}
     <div class="container">
       <div class="row">
         <div class="col-md-8">
           <div class="form-group">
-            {% csrf_token %}
-            <label class="label1">Nome de usuario</label>
-            <input type="text" class="form-control" placeholder="Nome de usuario" aria-describedby="basic-addon1">
-            <label class="label2">Senha</label>
-            <input type="password" class="form-control" placeholder="Senha" aria-describedby="basic-addon1">
-            <div>
-              <button type="submit" class="btn btn-primary btn-sm" value="Logar">Logar</button>
+            <div class="col-sm-3 my-1">
+              <label class="label1">Nome de usuario</label>
+              <input name="nome_usuario" type="text" class="form-control" placeholder="Nome de usuario" aria-describedby="basic-addon1">
+            </div>
+            <div class="col-sm-3 my-1">
+              <label class="label1">Senha</label>
+              <input name="senha" type="password" class="form-control" placeholder="Senha" aria-describedby="basic-addon1">
+            </div>
+            </br>
+            <button type="submit" class="btn btn-primary btn-sm">Logar</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <input type="hidden" name="next" value="{{ next }}" />
   </form>
 {%  endblock %}

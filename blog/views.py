@@ -5,12 +5,12 @@ from django.shortcuts import render
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
-from django.contrib.auth import authenticate, login
-from django.http import HttpResponse
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 
 from blog.models import Post
 from .forms import PostForm
-from .forms import LoginForm
+from .models import InfoUsuario
 
 # Create your views here.
 
@@ -39,6 +39,7 @@ def editar_post(request, pk):
         forms = PostForm(instance=posts)
     return render(request, 'blog/form.html', {'forms': forms})
 
+
 def novo_post(request):
     if request.method == "POST":
         forms = PostForm(request.POST)
@@ -53,20 +54,41 @@ def novo_post(request):
     return render(request, 'blog/form.html', {'forms': forms})
 
 
+def cadastro(request):
+    if request.method == 'POST':
+        data = request.POST
+        try:
+            user = User.objects.create_user(
+                username=data.get('nome_usuario'), email=data.get('email'), password=data.get('senha'),
+                first_name=data.get('primeiro_nome'), last_name=data.get('ultimo_nome'))
+
+        except Exception as err:
+            return render(request, 'blog/cadastro.html', {'message': 'error'})
+        InfoUsuario.objects.create(user=user)
+        login(request, user)
+        return redirect('lista_posts')
+
+    else:
+        return render(request, 'blog/cadastro.html')
+
+
 def logar(request):
     if request.method == 'POST':
-        forms = LoginForm(request.POST)
-        if forms.is_valid():
-            cd = forms.cleaned_data
-            usuario = authenticate(nome_usuario=cd['nome_usuario'], senha=['senha'])
-            if usuario is not None:
-                if usuario.is_active:
-                    login(request, usuario)
-                    return redirect('lista_posts')
-                else:
-                    return HttpResponse('Conta desabilitada')
-            else:
-                return HttpResponse('Login Invalido')
+        data = request.POST
+        usuario = authenticate(username=data.get('nome_usuario'), password=data.get('senha'))
+
+        if usuario is not None:
+            login(request, usuario)
+            return redirect('lista_posts')
+
+        else:
+            return render(request, 'blog/login.html')
+
     else:
-        forms = LoginForm()
-    return render(request, 'blog/login.html', {'forms': forms})
+        return render(request, 'blog/login.html')
+
+
+def deslogar(request):
+    logout(request)
+    return redirect('lista_posts')
+
