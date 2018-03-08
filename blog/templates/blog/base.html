@@ -1,47 +1,47 @@
 {% load staticfiles %}
 <html>
-    <head>
-        <title>Blog da Mi</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
-        <link rel="stylesheet" href="{% static '/css/blog.css' %}">
-    </head>
-    <body>
-        <div class="container">
-            <div class="header2">
-                {% if user.is_authenticated %}
-                    <div class="usuario">
-                        Bem vindo {{user.username}}
-                    </div>
-                {% endif %}
-                <h1>Blog da Mi</h1>
-                <h3>Olá menines!</h3>
-            </div>
-            <div class="user-settings">
-                {% if user.is_authenticated %}
-                    <a href="{% url 'novo_post' %}"><span class="glyphicon glyphicon-plus">Post</span></a>
-                    <a href="{% url 'deslogar' %}"><span class="glyphicon glyphicon-off">Sair</span></a>
-                {% else %}
-                    <a href="{% url 'logar' %}"><span class="glyphicon glyphicon-user">Logar</span></a>
-                    <a href="{% url 'cadastro' %}"><span class="glyphicon glyphicon-edit">Cadastro</span></a>
-                {% endif %}
-            </div>
-            <div class="clear"></div>
-            <ul class="nav nav-tabs col-md-8" id="myTab" role="tablist">
-              <li class="nav-item">
-                <a class="menu" href="{% url 'lista_posts' %}">Home</a>
-              </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
-              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-              <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
-            </div>
-            {% block content %}
+  <head>
+    <title>Blog da Mi</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/css/blog.css' %}">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header2">
+        {% if user.is_authenticated %}
+          <div class="usuario">
+              Bem vindo {{user.username}}
+          </div>
+        {% endif %}
+        <h1>Blog da Mi</h1>
+        <h3>Olá menines!</h3>
+      </div>
+      <div class="user-settings">
+        {% if user.is_authenticated %}
+            <a href="{% url 'novo_post' %}"><span class="glyphicon glyphicon-plus">Post</span></a>
+            <a href="{% url 'deslogar' %}"><span class="icone-float glyphicon glyphicon-off">Sair</span></a>
+        {% else %}
+            <a href="{% url 'logar' %}"><span class="glyphicon glyphicon-user">Logar</span></a>
+            <a href="{% url 'cadastro' %}"><span class="icone-float glyphicon glyphicon-edit">Cadastro</span></a>
+        {% endif %}
+      </div>
+      <div class="clear"></div>
+      <ul class="nav nav-tabs col-md-8" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="menu" href="{% url 'lista_posts' %}">Home</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+      </div>
+      {% block content %}
 
-            {% endblock %}
-        </div>
-    </body>
+      {% endblock %}
+    </div>
+  </body>
 </html>

@@ -1,27 +1,35 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-  <form action="{% url 'logar' %}" method="POST" class="form-row">
-    {% csrf_token %}
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="form-group">
-            <div class="col-sm-3 my-1">
-              <label class="label1">Nome de usuario</label>
-              <input name="nome_usuario" type="text" class="form-control" placeholder="Nome de usuario" aria-describedby="basic-addon1">
-            </div>
-            <div class="col-sm-3 my-1">
-              <label class="label1">Senha</label>
-              <input name="senha" type="password" class="form-control" placeholder="Senha" aria-describedby="basic-addon1">
-            </div>
-            </br>
-            <button type="submit" class="btn btn-primary btn-sm">Logar</button>
-            </div>
+{% if messages %}
+  <div class="messages">
+    {% for message in messages %}
+      <div class="messages col-md-6">
+          <div class="alert alert-warning alert-dismissable">
+              <i class="fa fa-exclamation-circle"></i>
+              <strong>Aviso!</strong> {{ message }}
+              <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
           </div>
-        </div>
       </div>
+    {% endfor %}
+  </div>
+{% endif %}
+<form action="{% url 'logar' %}" method="POST" class="form-row">
+  {% csrf_token %}
+  <div class="col-md-8">
+    <div class="login {% if messages %} login-after {% endif %} form-group">
+      <div class="col-sm-3 my-1">
+        <label class="label1">Nome de usuario</label>
+        <input name="nome_usuario" type="text" class="form-control" placeholder="Nome de usuario" aria-describedby="basic-addon1">
+      </div>
+      <div class="col-sm-3 my-1">
+        <label class="label1">Senha</label>
+        <input name="senha" type="password" class="form-control" placeholder="Senha" aria-describedby="basic-addon1">
+      </div>
+      </br>
+      <button type="submit" class="button-logar btn btn-primary btn-sm">Logar</button>
     </div>
-    <input type="hidden" name="next" value="{{ next }}" />
-  </form>
+  </div>
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
 {%  endblock %}

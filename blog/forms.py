@@ -10,11 +10,8 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ('titulo', 'text')
 
-
-class LoginForm(forms.Form):
-    nome = forms.CharField(label='Nome', max_length=30)
-    ultimo_nome = forms.CharField(label='Ultimo nome', max_length=60)
-    email = forms.EmailField(label='Email', max_length=200)
-    nome_usuario = forms.CharField(label='Nome de usuario', max_length=30)
-    senha = forms.CharField(widget=forms.PasswordInput)
-
+    def clean_titulo(self):
+        titulo = self.cleaned_data['titulo']
+        if len(titulo) < 3:
+            raise forms.ValidationError("O título deve conter mais de 3 letras")
+        return titulo

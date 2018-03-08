@@ -2,27 +2,33 @@
 
 {% block content %}
 <form action="{% url 'cadastro' %}" method="POST">
-  <div class="container">
-    <div class="col-md-8">
-      <div class="form-group">
-        {% csrf_token %}
-          {% if message %}
-            <div class="alert alert-danger" role="alert">
-              Usuário já cadastrado :<
+  {% if messages %}
+    <div class="messages">
+      {% for message in messages %}
+        <div class="messages col-md-6">
+            <div class="alert alert-warning alert-dismissable">
+                <i class="fa fa-exclamation-circle"></i>
+                <strong>Aviso!</strong> {{ message }}
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
             </div>
-          {% endif %}
-        <label class="label1">Primeiro Nome</label>
-          <input type="text" class="form-control" name="primeiro_nome" placeholder="Primeiro Nome" aria-describedby="basic-addon1">
-        <label class="label2">Último Nome</label>
-          <input type="text" class="form-control" name="ultimo_nome" placeholder="Último Nome" aria-describedby="basic-addon1">
-        <label class="label2">Nome de Usuário</label>
-          <input type="text" class="form-control" name="nome_usuario" placeholder="Nome de Usuário" aria-describedby="basic-addon1">
-        <label class="label2">Email</label>
-          <input type="email" class="form-control" name="email" placeholder="Email" aria-describedby="basic-addon1">
-        <label class="label2">Senha</label>
-          <input type="password" class="form-control" name="senha" placeholder="Senha" aria-describedby="basic-addon1">
-        <button type="submit" class="btn btn-primary btn-sm">Cadastrar</button>
-      </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+  <div class="col-md-8">
+    <div class="cadastro {% if messages %} cadastro-after {% endif %} form-group">
+      {% csrf_token %}
+      <label class="label1">Primeiro Nome</label>
+        <input type="text" class="form-control" name="primeiro_nome" placeholder="Primeiro Nome" aria-describedby="basic-addon1">
+      <label class="label2">Último Nome</label>
+        <input type="text" class="form-control" name="ultimo_nome" placeholder="Último Nome" aria-describedby="basic-addon1">
+      <label class="label2">Nome de Usuário</label>
+        <input type="text" class="form-control" name="nome_usuario" placeholder="Nome de Usuário" aria-describedby="basic-addon1">
+      <label class="label2">Email</label>
+        <input type="email" class="form-control" name="email" placeholder="Email" aria-describedby="basic-addon1">
+      <label class="label2">Senha</label>
+        <input type="password" class="form-control" name="senha" placeholder="Senha" aria-describedby="basic-addon1">
+      <button type="submit" class="button-cadastro btn btn-primary btn-sm">Cadastrar</button>
     </div>
   </div>
 </form>

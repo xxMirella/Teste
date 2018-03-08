@@ -24,6 +24,8 @@
     font-family: 'Nanum Myeongjo', serif;
     font-weight: bold;
     color: BABABA;
+    margin-top: 10px;
+    float: right;
  }
 
  .details {
@@ -43,6 +45,7 @@
  .label1 {
     color: C466B8;
     font-family: 'Indie Flower', cursive;
+    margin-top: 0px;
  }
 
  .label2{
@@ -50,18 +53,6 @@
     font-family: 'Indie Flower', cursive;
     margin-top: 5px;
 
- }
-
- .form-group {
-    padding: 6px;
- }
-
- label{
-    padding: 5px
- }
-
- button {
-    margin-top: 15px;
  }
 
  .usuario {
@@ -74,6 +65,7 @@
     float: right;
     margin-right: 35%;
     margin-top: 2%;
+    color: 65BAD6;
  }
 
  .clear {
@@ -90,4 +82,48 @@
     font-family: 'Indie Flower', cursive;
     margin-left: 2%;
     float: left;
+ }
+
+ .messages {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+ }
+
+ .cadastro{
+    margin-top: 15px;
+ }
+
+ .cadastro-after {
+    margin-top: 0px;
+ }
+
+ .button-cadastro{
+    margin-top: 10px;
+ }
+
+ .login {
+    margin-top: 15px;
+    margi-left: 10px;
+ }
+
+ .login-after{
+    margin-top: 0px;
+ }
+
+ .button-logar{
+    margin: 7px;
+ }
+
+ .data-pub {
+    margin-top: 5px;
+ }
+
+ .titulo {
+    float: left;
+    margin-top; 10px;
+ }
+
+ .icone-float {
+    margin: 5px;
  }

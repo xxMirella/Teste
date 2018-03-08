@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-8">
+      <form method="POST" class="post-form">
+        {% csrf_token %}
+        <div class="{% if forms.titulo.errors %} has-error {% endif %}">
+          <label class="label1">Título</label>
+          <input type="text" name="titulo"  value="{{forms.titulo.value}}" class="form-control" placeholder="Título" aria-describedby="basic-addon1">
+          <span class="{% if forms.titulo.errors %} has-error{% endif %}">{{forms.titulo.errors|striptags}}</span>
+        </div>
+        <div class="{% if forms.text.errors %} has-error {% endif %}">
+          <label class="label2">Texto</label>
+          <textarea rows="4" name="text" value="forms.text.value" class="form-control" placeholder="Texto" aria-describedby="basic-addon1"></textarea>
+          <span class="{% if forms.text.errors %} has-error{% endif %}">{{forms.text.errors|striptags}}</span>
+        </div>
+        <div>
+          <button type="submit" class="save btn btn-primary btn-sm">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
