@@ -16,7 +16,7 @@ from .models import InfoUsuario
 
 
 def lista_posts(request):
-    posts = Post.objects.filter(data_publicacao__lte=timezone.now())
+    posts = Post.objects.all()
     return render(request, 'blog/lista_post.html', {'posts': posts})
 
 
@@ -27,30 +27,31 @@ def detalhes_post(request, pk):
 
 def editar_post(request, pk):
     posts = get_object_or_404(Post, pk=pk)
+    forms = PostForm(request.POST or None, instance=posts)
+
     if request.method == "POST":
-        forms = PostForm(request.POST, instance=posts)
         if forms.is_valid():
-            post = forms.save(commit=False)
-            post.autor = request.user
+            post = forms.save(commit=False) #TODO: testar apenas com o form.instance
+            post.autor = request.user #TODO: passar o user para a instancia do form
             post.data_publicacao = timezone.now()
             post.save()
             return redirect('detalhes_post', pk=post.pk)
-    else:
-        forms = PostForm(instance=posts)
+
     return render(request, 'blog/form.html', {'forms': forms})
 
 
 def novo_post(request):
+    #TODO: usar o messages do django
+    forms = PostForm(request.POST or None)
+
     if request.method == "POST":
-        forms = PostForm(request.POST)
         if forms.is_valid():
             post = forms.save(commit=False)
             post.autor = request.user
             post.data_publicacao = timezone.now()
             post.save()
             return redirect('detalhes_post', pk=post.pk)
-    else:
-        forms = PostForm()
+
     return render(request, 'blog/form.html', {'forms': forms})
 
 

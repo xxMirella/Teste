@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django import forms
 
 from .models import Post
@@ -16,5 +17,4 @@ class LoginForm(forms.Form):
     email = forms.EmailField(label='Email', max_length=200)
     nome_usuario = forms.CharField(label='Nome de usuario', max_length=30)
     senha = forms.CharField(widget=forms.PasswordInput)
-
 

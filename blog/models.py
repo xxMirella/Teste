@@ -15,12 +15,15 @@ class Post(models.Model):
     data_criacao = models.DateTimeField(default=timezone.now)
     data_publicacao = models.DateTimeField(default=timezone.now, null=False)
 
+    class Meta:
+        ordering = ['-data_publicacao',]
+
     def publicar(self):
         self.data_publicacao = timezone.now()
         self.save()
 
     def __str__(self):
-        return self.titulo
+        return "id: %s - titulo: %s" % (self.id, self.titulo)
 
 
 class InfoUsuario(models.Model):

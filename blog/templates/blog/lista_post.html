@@ -9,7 +9,8 @@
                         <h2><a href="{% url 'detalhes_post' pk=post.pk %}">{{ post.titulo }}</a></h2>
                     </div>
                     <p>{{ post.text|linebreaksbr }}</p>
-                    <p>published: {{ post.data_publicacao }}</p>
+                    <p>Publicado: {{ post.data_publicacao }}</p>
+                    <p class="autor">Autor: {{post.autor}}</p>
                 </div>
             </div>
         </div>

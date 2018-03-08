@@ -64,17 +64,30 @@
     margin-top: 15px;
  }
 
- .icone {
-    padding-left: 620px;
- }
-
- .icone2 {
-    padding-left: 620px;
-    font-family: 'Indie Flower', cursive;
- }
-
  .usuario {
     padding-top: 25px;
     font-family: 'Indie Flower', cursive;
     color: E09DD7;
+ }
+
+ .user-settings {
+    float: right;
+    margin-right: 35%;
+    margin-top: 2%;
+ }
+
+ .clear {
+    clear:both;
+ }
+
+ .autor {
+    font-family: 'Indie Flower', cursive;
+    color: C466B8;
+ }
+
+  .header2 {
+    color: 65BAD6;
+    font-family: 'Indie Flower', cursive;
+    margin-left: 2%;
+    float: left;
  }

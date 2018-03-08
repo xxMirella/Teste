@@ -10,35 +10,38 @@
     </head>
     <body>
         <div class="container">
-            <div class="headers">
+            <div class="header2">
                 {% if user.is_authenticated %}
-                    <a href="{% url 'novo_post' %}" class="icone"><span class="glyphicon glyphicon-plus">Post</span></a>
-                    <a href="{% url 'deslogar' %}" class="icone2"><span class="glyphicon glyphicon-off">Sair</span></a>
-                {% else %}
-                    <a href="{% url 'logar' %}" class="icone"><span class="glyphicon glyphicon-user">Logar</span></a>
-                    <a href="{% url 'cadastro' %}" class="icone2"><span class="glyphicon glyphicon-edit">Cadastro</span></a>
-                {% endif %}
-                <div class="container">
                     <div class="usuario">
                         Bem vindo {{user.username}}
                     </div>
-                    <h1>Blog da Mi</h1>
-                    <h3>Olá menines!</h3>
-                </div>
+                {% endif %}
+                <h1>Blog da Mi</h1>
+                <h3>Olá menines!</h3>
             </div>
-                <ul class="nav nav-tabs col-md-8" id="myTab" role="tablist">
-                  <li class="nav-item">
-                    <a class="menu" href="{% url 'lista_posts' %}">Home</a>
-                  </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
-                  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-                  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
-                </div>
-        </div>
+            <div class="user-settings">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'novo_post' %}"><span class="glyphicon glyphicon-plus">Post</span></a>
+                    <a href="{% url 'deslogar' %}"><span class="glyphicon glyphicon-off">Sair</span></a>
+                {% else %}
+                    <a href="{% url 'logar' %}"><span class="glyphicon glyphicon-user">Logar</span></a>
+                    <a href="{% url 'cadastro' %}"><span class="glyphicon glyphicon-edit">Cadastro</span></a>
+                {% endif %}
+            </div>
+            <div class="clear"></div>
+            <ul class="nav nav-tabs col-md-8" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="menu" href="{% url 'lista_posts' %}">Home</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+              <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+            </div>
             {% block content %}
 
             {% endblock %}
-        </body>
+        </div>
+    </body>
 </html>
